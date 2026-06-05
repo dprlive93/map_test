@@ -22,7 +22,7 @@ st.text("남동고~~")
 
 
 #데이터 읽어오기
-df = pd.read_csv('등산경로.csv',encoding='cp949')
+df = pd.read_csv('등산경로.csv',encoding='utf-8')
 df_latlon = df[['위도','경도']]
 
 df_latlon = df_latlon.rename(columns={'위도':'lat','경도':'lon'})
