@@ -141,7 +141,14 @@ with col1:
     st.subheader("등산 경로 지도")
     st_folium(m, width = 700, height = 500)
 with col2:
-    st.subheader("정보")
+    st.subheader("코스상세안내")
+    if selected_course !="전체 코스 보기":
+        c_key = selected_coure + '코스'
+        info = course_info.get(c_key, {})
+        st.markdown(f"### **{selected_course}** 코스")
+   
+    
+    
     st.info("길이 미끄럽습니다. 주의하세요")
     st. metric(label="소요시간", value="10분")
     st. write("주의사항 : 등산화를 착용하세요.")
