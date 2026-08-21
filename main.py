@@ -155,10 +155,9 @@ with col2:
         
         st.markdown("---")
         st.subheader("📸 지점별 포인트 사진")
-        
-from PIL import Image, ImageOps
+        from PIL import Image, ImageOps
 
-for idx, row in filtered_df.iterrows():
+        for idx, row in filtered_df.iterrows():
             st.write(f"**{row['위치명']}**")
             img_path = row['이미지']
             if os.path.exists(img_path):
@@ -179,21 +178,8 @@ for idx, row in filtered_df.iterrows():
             else:
                 st.caption("*(해당 지점 이미지 파일 준비 중)*")
 
-    else:
-        st.info("👈 왼쪽 사이드바에서 특정 코스(A~E)를 선택하면 예상 소요시간, 주의사항 및 포인트별 사진을 상세히 보실 수 있습니다.")
-        
-        st.markdown("### 📋 전체 코스 개요")
-        for k, v in course_info.items():
-            st.markdown(f"- **{k}**: {v['desc']} *(소요시간: {v['time']})*")
-            
-        summary_list = []
-        for c_code in unique_courses:
-            c_df = df[df['코스'] == c_code]
-            last_time = c_df[c_df['위치명'].str.contains('정상')]['소요시간'].values
-            t_str = last_time[0] if len(last_time) > 0 else c_df.iloc[-1]['소요시간']
-            summary_list.append({"코스": f"{c_code}코스", "총 소요시간(분:초)": t_str, "포인트 개수": len(c_df)})
-        
-        st.dataframe(pd.DataFrame(summary_list), hide_index=True, use_container_width=True)
+
+    
         
           
         
