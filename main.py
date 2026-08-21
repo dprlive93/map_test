@@ -76,7 +76,7 @@ else:
 
 m = folium.Map(
     location = [37.40583317, 126.7214872],
-    zoom_start= 15
+    zoom_start= 16
 )
 for i in range(len(df)):
     folium.Marker(
