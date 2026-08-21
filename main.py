@@ -195,6 +195,8 @@ for idx, row in filtered_df.iterrows():
         
         st.dataframe(pd.DataFrame(summary_list), hide_index=True, use_container_width=True)
         
+          
+        
 
 
 
