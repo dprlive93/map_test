@@ -143,7 +143,7 @@ with col1:
 with col2:
     st.subheader("코스상세안내")
     if selected_course !="전체 코스 보기":
-        c_key = selected_coure + '코스'
+        c_key = selected_course + '코스'
         info = course_info.get(c_key, {})
         st.markdown(f"### **{selected_course}** 코스")
    
