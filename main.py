@@ -154,6 +154,15 @@ with col2:
         
         st.markdown("---")
         st.subheader("📸 지점별 포인트 사진")
+        # 선택한 코스의 지점별 사진 목록 출력
+        for idx, row in filtered_df.iterrows():
+            st.write(f"📍 **{row['위치명']}**")
+            img_path = row['이미지']
+            if os.path.exists(img_path):
+                st.image(img_path, caption=row['위치명'], use_container_width=True)
+            else:
+                st.caption("📷 *(해당 지점 이미지 파일 준비 중)*")
+
 
     
     
